@@ -28,7 +28,7 @@ class NCBISearchNotFound(Exception):
 def download_gene_annotation_and_chromsizes(
         species: str,
         biomart_host: str,
-        use_ucsc_chromosome_style: bool = True
+        use_ucsc_chromosome_style: bool = False
         ) -> Union[pd.DataFrame, Tuple[pd.DataFrame, pd.DataFrame]]:
     """
     Download gene annotation for specific species.
@@ -77,7 +77,12 @@ def download_gene_annotation_and_chromsizes(
         _regex_display_name = re.search(r'\((.*?)\)',dataset.display_name)
         if _regex_display_name is None:
             raise ValueError("Could not find assembly from biomart query display name.")
-        ncbi_search_term = _regex_display_name.group(1)
+
+        if str(species) == 'dmelanogaster':
+          ncbi_search_term = 'Drosophila melanogaster'
+        else:
+          ncbi_search_term = _regex_display_name.group(1)
+          
         log.info(f"Using genome: {ncbi_search_term}")
         # Look for genome id
         ncbi_tries = 0

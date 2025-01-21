@@ -77,7 +77,12 @@ def download_gene_annotation_and_chromsizes(
         _regex_display_name = re.search(r'\((.*?)\)',dataset.display_name)
         if _regex_display_name is None:
             raise ValueError("Could not find assembly from biomart query display name.")
-        ncbi_search_term = _regex_display_name.group(1)
+
+        if species == 'dmelanogaster':
+          ncbi_search_term = 'Drosophila melanogaster'
+        else:
+          ncbi_search_term = _regex_display_name.group(1)
+          
         log.info(f"Using genome: {ncbi_search_term}")
         # Look for genome id
         ncbi_tries = 0

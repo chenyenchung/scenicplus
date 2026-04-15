@@ -42,7 +42,7 @@ $ pip install .
 
 ## References
 
-[Bravo Gonzalez-Blas, C. & De Winter, S. *et al.* (2022). SCENIC+: single-cell multiomic inference of enhancers and gene regulatory networks](https://www.biorxiv.org/content/10.1101/2022.08.19.504505v1)
+[Bravo Gonzalez-Blas, C. & De Winter, S. *et al.* (2023). SCENIC+: single-cell multiomic inference of enhancers and gene regulatory networks](https://doi.org/10.1038/s41592-023-01938-4)
 
 ## license
 
